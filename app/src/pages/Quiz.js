@@ -8,7 +8,7 @@ import '../styles/quiz.css';
 export default function Quiz() {
     const [activate, setActivate] = useState(false);
     const [score, setScore] = useState(0);
-    const [timeRemaining, setTimeRemaining] = useState(0.5 * 60);
+    const [timeRemaining, setTimeRemaining] = useState(5 * 60);
     const maxScore = 50;
 
     useTimer(activate, timeRemaining, setTimeRemaining, () =>
@@ -21,7 +21,7 @@ export default function Quiz() {
                 <div className="header">
                     <div className="header-button">
                         <Button
-                            text="Play Quiz"
+                            text="PLAY QUIZ"
                             onClick={() => setActivate(true)}
                         />
                     </div>
