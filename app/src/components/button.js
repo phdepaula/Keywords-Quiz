@@ -3,3 +3,5 @@ export function Button(props) {
 
     return <button onClick={action}>{text}</button>;
 }
+
+export default Button;
