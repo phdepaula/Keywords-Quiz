@@ -1,7 +1,7 @@
 export function Button(props) {
-    const { text, action } = props;
+    const { text, onClick } = props;
 
-    return <button onClick={action}>{text}</button>;
+    return <button onClick={onClick}>{text}</button>;
 }
 
 export default Button;
