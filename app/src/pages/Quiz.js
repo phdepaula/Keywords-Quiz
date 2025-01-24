@@ -8,15 +8,12 @@ import '../styles/quiz.css';
 export default function Quiz() {
     const [activate, setActivate] = useState(false);
     const [score, setScore] = useState(0);
-    const [timeRemaining, setTimeRemaining] = useState(5 * 60);
+    const [timeRemaining, setTimeRemaining] = useState(0.5 * 60);
     const maxScore = 50;
 
-    const handleTimeUp = () => {
-        alert('O tempo acabou!');
-        setActivate(false);
-    };
-
-    useTimer({ activate, timeRemaining, setTimeRemaining, handleTimeUp });
+    useTimer(activate, timeRemaining, setTimeRemaining, () =>
+        setActivate(false),
+    );
 
     return (
         <div className="page">

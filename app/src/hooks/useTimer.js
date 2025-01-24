@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-export default function useTimer({
+export default function useTimer(
     activate,
     timeRemaining,
     setTimeRemaining,
     action,
-}) {
+) {
     useEffect(() => {
         if (timeRemaining <= 0) {
             action();
