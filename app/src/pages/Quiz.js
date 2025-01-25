@@ -20,11 +20,11 @@ export default function Quiz() {
     const [keyStatus, setKeyStatus] = useState(false);
 
     const checkInputValue = (value) => {
+        setInputValue(value);
+
         if (apiData.includes(value) && !results.includes(value)) {
             setResults((prevValues) => [...prevValues, value]);
             setScore(score + 1);
-        } else {
-            setInputValue(value);
         }
     };
 
