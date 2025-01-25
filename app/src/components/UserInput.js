@@ -4,7 +4,7 @@ export default function UserInput(props) {
     const { description, value, action } = props;
 
     const onChange = (event) => {
-        action(event.target.value);
+        action(event.target.value.toUpperCase());
     };
 
     return (
