@@ -49,8 +49,4 @@ export const apiData = [
     'OPEN',
     'PRINT',
     'INPUT',
-    'EXEC',
-    'EVAL',
-    'GLOBALS',
-    'LOCALS',
 ];
