@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Button from '../components/button';
+import ColumnView from '../components/ColumView';
 import Counters from '../components/counters';
 import UserInput from '../components/UserInput';
+import useSplitList from '../hooks/useSplitList';
 import useTimer from '../hooks/useTimer';
 import { apiData } from '../settings';
 
@@ -14,11 +16,11 @@ export default function Quiz() {
     const maxScore = 50;
     const [inputValue, setInputValue] = useState('');
     const [results, setResults] = useState([]);
+    const dataView = useSplitList(apiData, 10);
 
     const checkInputValue = (value) => {
         if (apiData.includes(value) && !results.includes(value)) {
             setResults((prevValues) => [...prevValues, value]);
-            setInputValue('');
             setScore(score + 1);
         } else {
             setInputValue(value);
@@ -58,6 +60,16 @@ export default function Quiz() {
                                 indicator={`${Math.floor(timeRemaining / 60)}:${(timeRemaining % 60).toString().padStart(2, '0')}`}
                             />
                         </div>
+                    </div>
+                    <div className="quiz-view">
+                        {dataView.map((item) => {
+                            return (
+                                <ColumnView
+                                    data={item}
+                                    inputValue={inputValue}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </div>
