@@ -16,7 +16,7 @@ export default function Quiz() {
     const [results, setResults] = useState([]);
 
     const checkInputValue = (value) => {
-        if (apiData.includes(value)) {
+        if (apiData.includes(value) && !results.includes(value)) {
             setResults((prevValues) => [...prevValues, value]);
             setInputValue('');
             setScore(score + 1);
