@@ -23,6 +23,7 @@ body {
     padding: 32px;
     border-radius: 8px;
     border: 1px solid black;
+    gap: 16px;
 }
 
 .header {
@@ -58,4 +59,10 @@ body {
     cursor: pointer;
     background-color: rgb(250, 179, 46);
     border: 1px solid rgb(250, 179, 46);
+}
+
+.quiz-view {
+    display: flex;
+    width: 100%;
+    gap: 8px;
 }
