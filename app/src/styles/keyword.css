@@ -1,0 +1,11 @@
+.keyword {
+    display: flex;
+    height: 25px;
+    background-color: #a97c64;
+    border-bottom: 1px solid black;
+    align-items: center;
+    font-size: 10px;
+    width: 100%;
+    justify-content: center;
+    color: white;
+}

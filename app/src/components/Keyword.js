@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import '../styles/keyword.css';
+
 export default function Keyword(props) {
     const { keyword, inputValue } = props;
     const [status, setStatus] = useState(false);
@@ -11,6 +13,6 @@ export default function Keyword(props) {
     }, [inputValue]);
 
     return (
-        <div className="item-view">{status ? <span>{keyword}</span> : ''}</div>
+        <div className="keyword">{status ? <span>{keyword}</span> : ''}</div>
     );
 }
