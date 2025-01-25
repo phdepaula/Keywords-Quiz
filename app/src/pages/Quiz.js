@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../components/button';
 import ColumnView from '../components/ColumView';
 import Counters from '../components/counters';
@@ -17,6 +17,7 @@ export default function Quiz() {
     const [inputValue, setInputValue] = useState('');
     const [results, setResults] = useState([]);
     const dataView = useSplitList(apiData, 10);
+    const [keyStatus, setKeyStatus] = useState(false);
 
     const checkInputValue = (value) => {
         if (apiData.includes(value) && !results.includes(value)) {
@@ -26,6 +27,10 @@ export default function Quiz() {
             setInputValue(value);
         }
     };
+
+    useEffect(() => {
+        setInputValue('');
+    }, [keyStatus]);
 
     useTimer(activate, timeRemaining, setTimeRemaining, () =>
         setActivate(false),
@@ -67,6 +72,7 @@ export default function Quiz() {
                                 <ColumnView
                                     data={item}
                                     inputValue={inputValue}
+                                    setKeyStatus={setKeyStatus}
                                 />
                             );
                         })}
