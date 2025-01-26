@@ -1,7 +1,7 @@
 import '../styles/hiddenSelection.css';
 
 export default function HiddenSelection(props) {
-    const { options, value, action } = props;
+    const { options, action } = props;
 
     return (
         <div className="hidden-selection">
