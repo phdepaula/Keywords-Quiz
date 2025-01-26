@@ -59,10 +59,12 @@ export default function Quiz() {
                             <Counters
                                 name="SCORE"
                                 indicator={`${score}/${maxScore}`}
+                                options={['Numerical', 'Percentage']}
                             />
                             <Counters
                                 name="TIMER"
                                 indicator={`${Math.floor(timeRemaining / 60)}:${(timeRemaining % 60).toString().padStart(2, '0')}`}
+                                options={['Default Timer', 'Practice Mode']}
                             />
                         </div>
                     </div>
