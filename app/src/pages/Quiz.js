@@ -18,6 +18,8 @@ export default function Quiz() {
     const [results, setResults] = useState([]);
     const dataView = useSplitList(apiData, 10);
     const [keyStatus, setKeyStatus] = useState(false);
+    const [scoreType, setScoreType] = useState('Numerical');
+    const [timerType, setTimerType] = useState('Default Timer');
 
     const checkInputValue = (value) => {
         setInputValue(value);
@@ -27,6 +29,13 @@ export default function Quiz() {
             setScore(score + 1);
         }
     };
+
+    useEffect(() => {
+        setActivate(false);
+        setTimeRemaining(10 * 60);
+        setScore(0);
+        setResults([]);
+    }, [timerType]);
 
     useEffect(() => {
         setInputValue('');
@@ -58,13 +67,19 @@ export default function Quiz() {
                         <div className="header-counters">
                             <Counters
                                 name="SCORE"
-                                indicator={`${score}/${maxScore}`}
+                                indicator={
+                                    scoreType == 'Numerical'
+                                        ? `${score}/${maxScore}`
+                                        : `${Math.round((score / maxScore) * 100, 2)}%`
+                                }
                                 options={['Numerical', 'Percentage']}
+                                action={(value) => setScoreType(value)}
                             />
                             <Counters
                                 name="TIMER"
                                 indicator={`${Math.floor(timeRemaining / 60)}:${(timeRemaining % 60).toString().padStart(2, '0')}`}
                                 options={['Default Timer', 'Practice Mode']}
+                                action={(value) => setTimerType(value)}
                             />
                         </div>
                     </div>
@@ -75,6 +90,7 @@ export default function Quiz() {
                                     data={item}
                                     inputValue={inputValue}
                                     setKeyStatus={setKeyStatus}
+                                    activate={activate}
                                 />
                             );
                         })}

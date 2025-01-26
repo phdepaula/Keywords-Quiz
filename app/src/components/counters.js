@@ -6,7 +6,7 @@ import HiddenSelection from './HiddeSelection';
 import '../styles/counters.css';
 
 export default function Counters(props) {
-    const { name, indicator, options } = props;
+    const { name, indicator, options, action } = props;
     const [selectionActivated, setSelectionActivated] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -36,7 +36,11 @@ export default function Counters(props) {
                     <img alt="arrow" src={arrow} />
                 </div>
                 {selectionActivated && (
-                    <HiddenSelection options={options} value="" />
+                    <HiddenSelection
+                        options={options}
+                        value=""
+                        action={action}
+                    />
                 )}
             </div>
             <div className="counters-container-indicator">
