@@ -1,4 +1,3 @@
-import arrow from '../assets/arrow.svg';
 import '../styles/hiddenSelection.css';
 
 export default function HiddenSelection(props) {
@@ -6,13 +5,12 @@ export default function HiddenSelection(props) {
 
     return (
         <div className="hidden-selection">
-            {options.map((item, index) => {
+            {options.map((item) => {
                 return (
                     <div
                         className="hidden-selection-option"
                         onClick={() => action(item)}
                     >
-                        {value === item ? <img alt={index} src={arrow} /> : ''}
                         <span>{item}</span>
                     </div>
                 );

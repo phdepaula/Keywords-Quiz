@@ -36,11 +36,7 @@ export default function Counters(props) {
                     <img alt="arrow" src={arrow} />
                 </div>
                 {selectionActivated && (
-                    <HiddenSelection
-                        options={options}
-                        value=""
-                        action={action}
-                    />
+                    <HiddenSelection options={options} action={action} />
                 )}
             </div>
             <div className="counters-container-indicator">
