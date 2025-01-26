@@ -15,6 +15,12 @@
     padding: 0px 16px;
 }
 
+.hidden-selection-option span {
+    font-size: 12px;
+    width: 100%;
+    white-space: nowrap;
+}
+
 .hidden-selection-option:hover {
     background-color: rgb(250, 179, 46);
     cursor: pointer;
