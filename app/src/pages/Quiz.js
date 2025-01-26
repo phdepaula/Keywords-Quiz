@@ -44,13 +44,13 @@ export default function Quiz() {
     };
 
     useEffect(() => {
+        resetApp();
+
         if (timerType == 'Default Timer') {
             setTimeRemaining(5 * 60);
         } else {
             setTimeRemaining(10 * 60);
         }
-
-        resetApp();
     }, [timerType]);
 
     useEffect(() => {
