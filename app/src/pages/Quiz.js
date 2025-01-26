@@ -30,15 +30,27 @@ export default function Quiz() {
         }
     };
 
-    useEffect(() => {
+    const resetApp = () => {
         setActivate(false);
         setTimeRemaining(10 * 60);
         setScore(0);
         setResults([]);
+    };
+
+    const endQuis = () => {
+        if (score === maxScore) {
+            alert('Congratulations, you guessed all the keywords correctly.');
+            resetApp();
+        }
+    };
+
+    useEffect(() => {
+        resetApp();
     }, [timerType]);
 
     useEffect(() => {
         setInputValue('');
+        endQuis();
     }, [keyStatus]);
 
     useTimer(activate, timeRemaining, setTimeRemaining, () =>
