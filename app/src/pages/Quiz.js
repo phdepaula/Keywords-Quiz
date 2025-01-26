@@ -32,7 +32,6 @@ export default function Quiz() {
 
     const resetApp = () => {
         setActivate(false);
-        setTimeRemaining(10 * 60);
         setScore(0);
         setResults([]);
     };
@@ -45,6 +44,12 @@ export default function Quiz() {
     };
 
     useEffect(() => {
+        if (timerType == 'Default Timer') {
+            setTimeRemaining(5 * 60);
+        } else {
+            setTimeRemaining(10 * 60);
+        }
+
         resetApp();
     }, [timerType]);
 
